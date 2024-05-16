@@ -18,17 +18,23 @@ namespace LarenthiosItems
         public const string PluginGUID = PluginAuthor + "." + PluginName;
 
         private static AirbornePathogen airbornePathogen;
+        private static Sunsetter sunsetter;
 
         public void Awake()
         {
             Log.Init(Logger);
-            airbornePathogen = ScriptableObject.CreateInstance<AirbornePathogen>();
 
             var displayRules = new ItemDisplayRuleDict(null);
+            
+            airbornePathogen = ScriptableObject.CreateInstance<AirbornePathogen>();
+            sunsetter = ScriptableObject.CreateInstance<Sunsetter>();
+
 
             ItemAPI.Add(new CustomItem(airbornePathogen, displayRules));
+            ItemAPI.Add(new CustomItem(sunsetter, displayRules));
 
             GlobalEventManager.onCharacterDeathGlobal += airbornePathogen.Proc;
+            GlobalEventManager.onServerDamageDealt += sunsetter.Proc;
         }
 
 
@@ -37,19 +43,6 @@ namespace LarenthiosItems
             if (Input.GetKeyDown(KeyCode.F2))
             {
                 PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(airbornePathogen.itemIndex);
-
-                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(RoR2Content.Items.SlowOnHit.itemIndex);
-
-                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(RoR2Content.Items.BleedOnHit.itemIndex);
-                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(RoR2Content.Items.BleedOnHit.itemIndex);
-                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(RoR2Content.Items.BleedOnHit.itemIndex);
-                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(RoR2Content.Items.BleedOnHit.itemIndex);
-                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(RoR2Content.Items.BleedOnHit.itemIndex);
-                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(RoR2Content.Items.BleedOnHit.itemIndex);
-                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(RoR2Content.Items.BleedOnHit.itemIndex);
-                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(RoR2Content.Items.BleedOnHit.itemIndex);
-                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(RoR2Content.Items.BleedOnHit.itemIndex);
-                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(RoR2Content.Items.BleedOnHit.itemIndex);
             }
         }
     }

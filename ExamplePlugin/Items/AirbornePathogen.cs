@@ -16,21 +16,6 @@ namespace LarenthiosItems.Items
         public static int targets = 4;
         public static float range = 240f;
 
-        public static BuffDef[] Propagatables =
-        [
-            RoR2Content.Buffs.Bleeding,
-            RoR2Content.Buffs.SuperBleed,
-            RoR2Content.Buffs.Poisoned,
-            RoR2Content.Buffs.Blight,
-            RoR2Content.Buffs.ClayGoo,
-            RoR2Content.Buffs.Cripple,
-            RoR2Content.Buffs.HealingDisabled,
-            RoR2Content.Buffs.OnFire,
-            RoR2Content.Buffs.Weak,
-            RoR2Content.Buffs.PulverizeBuildup,
-            RoR2Content.Buffs.Pulverized
-        ];
-
         public AirbornePathogen()
         {
             //name = "EXAMPLE_CLOAKONKILL_NAME";
