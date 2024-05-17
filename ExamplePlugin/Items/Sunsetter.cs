@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine; 
 using UnityEngine.AddressableAssets;
+using UnityEngine.Yoga;
 
 namespace LarenthiosItems.Items
 {
@@ -33,7 +34,10 @@ namespace LarenthiosItems.Items
                 {
                     return;
                 }
-                report.damageDealt += report.damageDealt * ((report.victim.fullHealth - report.victim.health) / report.victim.fullHealth * 10) ;
+                Log.Debug($"Damage dealt before: {report.damageDealt}");
+                float victimHealth = (report.victim.fullHealth - report.victim.health) / report.victim.fullHealth;
+                report.damageDealt += (report.damageDealt) * victimHealth * (10 + (5 * report.attackerBody.inventory.GetItemCount(itemIndex) - 1) / 100);
+                Log.Debug($"Damage dealt after: {report.damageDealt}");
             };
         }
     }

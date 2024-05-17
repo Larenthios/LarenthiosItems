@@ -42,7 +42,7 @@ namespace LarenthiosItems
         {
             if (Input.GetKeyDown(KeyCode.F2))
             {
-                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(airbornePathogen.itemIndex);
+                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(sunsetter.itemIndex);
             }
         }
     }
