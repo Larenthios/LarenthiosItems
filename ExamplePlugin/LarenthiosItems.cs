@@ -19,6 +19,7 @@ namespace LarenthiosItems
 
         private static AirbornePathogen airbornePathogen;
         private static Sunsetter sunsetter;
+        private static EntropicPendulum entropicPendulum;
 
         public void Awake()
         {
@@ -28,13 +29,16 @@ namespace LarenthiosItems
             
             airbornePathogen = ScriptableObject.CreateInstance<AirbornePathogen>();
             sunsetter = ScriptableObject.CreateInstance<Sunsetter>();
+            entropicPendulum = ScriptableObject.CreateInstance<EntropicPendulum>();
 
 
             ItemAPI.Add(new CustomItem(airbornePathogen, displayRules));
             ItemAPI.Add(new CustomItem(sunsetter, displayRules));
+            ItemAPI.Add(new CustomItem(entropicPendulum, displayRules));
 
             GlobalEventManager.onCharacterDeathGlobal += airbornePathogen.Proc;
             GlobalEventManager.onServerDamageDealt += sunsetter.Proc;
+            GlobalEventManager.onServerDamageDealt += entropicPendulum.Proc;
         }
 
 
@@ -43,6 +47,7 @@ namespace LarenthiosItems
             if (Input.GetKeyDown(KeyCode.F2))
             {
                 PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(sunsetter.itemIndex);
+                //PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(entropicPendulum.itemIndex);
             }
         }
     }
