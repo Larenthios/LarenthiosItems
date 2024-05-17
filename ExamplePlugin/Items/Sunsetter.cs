@@ -2,6 +2,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Yoga;
 
 namespace LarenthiosItems.Items
 {
