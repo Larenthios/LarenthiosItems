@@ -74,4 +74,10 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Language\Items.language">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

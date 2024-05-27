@@ -1,0 +1,21 @@
+{
+  "strings": {
+    //Airborne Pathogen
+    "LARRY_PATHOGEN_NAME": "Airborne Pathogen",
+    "LARRY_PATHOGEN_PICKUP": "Keep clear of vents",
+    "LARRY_PATHOGEN_DESC": "On enemy kill, propagates a random debuff on the 4 closest enemies in a 240 units radius",
+    "LARRY_PATHOGEN_LORE": "???",
+
+    //Sunsetter
+    "LARRY_SUNSETTER_NAME": "Sunsetter",
+    "LARRY_SUNSETTER_PICKUP": "The reptile tail ripped from its back",
+    "LARRY_SUNSETTER_DESC": "Deal increased damage based on target missing health",
+    "LARRY_SUNSETTER_LORE": "???",
+
+    //Entropic Pendulum
+    "LARRY_PENDULUM_NAME": "Entropic Pendulum",
+    "LARRY_PENDULUM_PICKUP": "Ebb and flow",
+    "LARRY_PENDULUM_DESC": "Cycles between double and half damage every 10 seconds",
+    "LARRY_PENDULUM_LORE": "???",
+  }
+}

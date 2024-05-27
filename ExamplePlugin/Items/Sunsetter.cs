@@ -1,4 +1,5 @@
-﻿using RoR2;
+﻿using R2API;
+using RoR2;
 using System;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -11,11 +12,11 @@ namespace LarenthiosItems.Items
 
         public Sunsetter()
         {
-            name = "Sunsetter";
-            nameToken = "Sunsetter";
-            pickupToken = "The reptile tail ripped from its back";
-            descriptionToken = "Deal increased damage based on target missing health";
-            loreToken = "EXAMPLE_CLOAKONKILL_LORE";
+            name = "LARRY_SUNSETTER_NAME";
+            nameToken = "LARRY_SUNSETTER_NAME";
+            pickupToken = "LARRY_SUNSETTER_PICKUP";
+            descriptionToken = "LARRY_SUNSETTER_DESC";
+            loreToken = "LARRY_SUNSETTER_LORE";
 
             _itemTierDef = Addressables.LoadAssetAsync<ItemTierDef>("RoR2/Base/Common/Tier2Def.asset").WaitForCompletion();
             pickupIconSprite = Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Common/MiscIcons/texMysteryIcon.png").WaitForCompletion();
@@ -26,14 +27,14 @@ namespace LarenthiosItems.Items
 
             Proc = report =>
             {
-                if (!report.victim || !report.victimBody)
+                if (!report.victim || !report.victimBody || !report.attackerBody || report.attackerBody.inventory.GetItemCount(itemIndex) == 0)
                 {
                     return;
                 }
-                Log.Debug($"Damage dealt before: {report.damageDealt}");
-                float victimHealth = (report.victim.fullHealth - report.victim.health) / report.victim.fullHealth;
-                report.damageDealt += (report.damageDealt) * victimHealth * (10 + (5 * report.attackerBody.inventory.GetItemCount(itemIndex) - 1) / 100);
-                Log.Debug($"Damage dealt after: {report.damageDealt}");
+                float missingHealth = (report.victim.fullHealth - report.victim.health) / report.victim.fullHealth;
+                float stacks = report.attackerBody.inventory.GetItemCount(itemIndex) - 1;
+
+                report.damageDealt += (report.damageDealt) * missingHealth * ((10f + (5f * stacks)) / 100f);
             };
         }
     }

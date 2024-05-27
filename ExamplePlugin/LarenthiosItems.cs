@@ -31,7 +31,6 @@ namespace LarenthiosItems
             sunsetter = ScriptableObject.CreateInstance<Sunsetter>();
             entropicPendulum = ScriptableObject.CreateInstance<EntropicPendulum>();
 
-
             ItemAPI.Add(new CustomItem(airbornePathogen, displayRules));
             ItemAPI.Add(new CustomItem(sunsetter, displayRules));
             ItemAPI.Add(new CustomItem(entropicPendulum, displayRules));
@@ -46,8 +45,7 @@ namespace LarenthiosItems
         {
             if (Input.GetKeyDown(KeyCode.F2))
             {
-                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(sunsetter.itemIndex);
-                //PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(entropicPendulum.itemIndex);
+                PlayerCharacterMasterController.instances[0].master.inventory.GiveItem(entropicPendulum.itemIndex);
             }
         }
     }

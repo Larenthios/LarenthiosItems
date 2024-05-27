@@ -18,17 +18,11 @@ namespace LarenthiosItems.Items
 
         public AirbornePathogen()
         {
-            //name = "EXAMPLE_CLOAKONKILL_NAME";
-            //nameToken = "EXAMPLE_CLOAKONKILL_NAME";
-            //pickupToken = "EXAMPLE_CLOAKONKILL_PICKUP";
-            //descriptionToken = "EXAMPLE_CLOAKONKILL_DESC";
-            //loreToken = "EXAMPLE_CLOAKONKILL_LORE";
-
-            name = "Airborne Pathogen";
-            nameToken = "Airborne Pathogen";
-            pickupToken = "Don't store it near the vents";
-            descriptionToken = "On enemy kill, propagates a random debuff on the 4 closest enemies in a 240 units radius";
-            loreToken = "EXAMPLE_CLOAKONKILL_LORE";
+            name = "LARRY_PATHOGEN_NAME";
+            nameToken = "LARRY_PATHOGEN_NAME";
+            pickupToken = "LARRY_PATHOGEN_PICKUP";
+            descriptionToken = "LARRY_PATHOGEN_DESC";
+            loreToken = "LARRY_PATHOGEN_LORE";
 
             _itemTierDef = Addressables.LoadAssetAsync<ItemTierDef>("RoR2/Base/Common/Tier3Def.asset").WaitForCompletion();
             pickupIconSprite = Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Common/MiscIcons/texMysteryIcon.png").WaitForCompletion();

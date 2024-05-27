@@ -11,13 +11,13 @@ namespace LarenthiosItems.Items
 
         public EntropicPendulum()
         {
-            name = "Entropic Pendulum";
-            nameToken = "Entropic Pendulum";
-            pickupToken = "Ebb and flow";
-            descriptionToken = ":)";
-            loreToken = "EXAMPLE_CLOAKONKILL_LORE";
+            name = "LARRY_PENDULUM_NAME";
+            nameToken = "LARRY_PENDULUM_NAME";
+            pickupToken = "LARRY_PENDULUM_PICKUP";
+            descriptionToken = "LARRY_PENDULUM_DESC";
+            loreToken = "LARRY_PENDULUM_LORE";
 
-            _itemTierDef = Addressables.LoadAssetAsync<ItemTierDef>("RoR2/Base/Common/LunarDef.asset").WaitForCompletion();
+            _itemTierDef = Addressables.LoadAssetAsync<ItemTierDef>("RoR2/Base/Common/LunarTierDef.asset").WaitForCompletion();
             pickupIconSprite = Addressables.LoadAssetAsync<Sprite>("RoR2/Base/Common/MiscIcons/texMysteryIcon.png").WaitForCompletion();
             pickupModelPrefab = Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Mystery/PickupMystery.prefab").WaitForCompletion();
 
@@ -26,11 +26,12 @@ namespace LarenthiosItems.Items
 
             Proc = report =>
             {
-                if (!report.victim || !report.victimBody)
+                if (!report.victim || !report.victimBody || !report.attackerBody || report.attackerBody.inventory.GetItemCount(itemIndex) == 0)
                 {
                     return;
                 }
-                report.damageDealt = report.victim.health > (report.victim.fullHealth / 2) && DateTime.Now.Second / 10 % 2 == 0 ? report.damageDealt * 2 : report.damageDealt / 2;
+
+                report.damageDealt = report.victim.health > (report.victim.fullHealth / 2f) && DateTime.Now.Second / 10 % 2 == 0 ? report.damageDealt * 2 : report.damageDealt / 2;
             };
         }
     }
